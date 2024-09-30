@@ -1,13 +1,13 @@
 package src;
 
-import java.util.Iterator;
-
 public class Grid {
 	
 	public static void createGrid()
 	{
 		String[][] wordSpaces = new String[4][4];
 		String formattedGridBar = formatGrid(wordSpaces);
+		int rCount = 0;
+		int cCount = 0;
 		
 		System.out.println("+" + formattedGridBar + "+" + formattedGridBar + "+" + formattedGridBar + "+" + formattedGridBar + "+\r\n"
 				+ "| " + wordSpaces[0][0] + " | " + wordSpaces[0][1] + " |  " + wordSpaces[0][2] + " |  " + wordSpaces[0][3] + " |\r\n"
@@ -47,8 +47,11 @@ public class Grid {
 		return " + formattedGridBar + ";
 	}
 	
-	public static void fillWordList(String[][] ws)
+	public static void printWords(String[][] ws, int rCount, int cCount)
 	{
 		
 	}
+	
+	
+	
 }
