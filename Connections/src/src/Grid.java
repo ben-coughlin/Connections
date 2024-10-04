@@ -5,9 +5,12 @@ import java.util.ArrayList;
 
 public class Grid {
 	
+	
+	public static String[][] wordSpaces = new String[4][4]; 
+	
 	public static void createGrid()
 	{
-		String[][] wordSpaces = new String[4][4];
+		
 		
 		int rCount = 0;
 		int cCount = 0;
@@ -56,7 +59,7 @@ public class Grid {
 		{
 			formattedGridBar += "-";
 		}
-		return " + formattedGridBar + ";
+		return formattedGridBar;
 	}
 	
 	
@@ -67,9 +70,9 @@ public class Grid {
 		int rCount = 0;
 		int cCount = 0;
 		int wlCount = 0;
-		int wordGroup = wordList.get(wlCount).getDifficulty();
 		
 		
+		//printArrayList(wordList);
 		
 		for(int r = 0; r < ws.length; r++)
 		{
@@ -79,17 +82,48 @@ public class Grid {
 				
 				cCount++;
 				wlCount++;
-				System.out.println("r:"+rCount);
-				System.out.println("c:"+cCount);
-				System.out.println("wl:"+wlCount);
+				
+				//used for debugging 10/3
+//				System.out.println("r:"+rCount);
+//				System.out.println("c:"+cCount);
+//				System.out.println("wl:"+wlCount); 
 				
 			}
 			
 			cCount = 0;
 			rCount++;
 		}
+		
+		
+		ShuffleBoard.shuffle(ws);
+		
+	}
+	
+	public static void printMatrix(String[][] ws)
+	{
+		for(int r = 0; r < ws.length; r++)
+		{
+			for(int c = 0; c < ws[0].length; c++)
+			{
+				System.out.println(ws[r][c]);
+				
+			}
+			
+		}
+	}
+	public static void printArrayList(ArrayList<Word> al)
+	{
+		for(int i = 0; i < al.size(); i++)
+		{
+			System.out.println(al.get(i).getGroup());
+			System.out.println(al.get(i).getDifficulty());
+			System.out.println(al.get(i).getWord());
+		}
+	}
+	
+	
 	}
 	
 	
 	
-}
+
