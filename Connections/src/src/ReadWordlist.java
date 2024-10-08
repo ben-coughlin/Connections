@@ -1,15 +1,15 @@
 package src;
 
-import java.io.IOException;
-import java.util.Scanner;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class ReadWordlist {
 
-	public static ArrayList<Word> wordList = new ArrayList<Word>();
+	public static ArrayList<Word> wordList = new ArrayList<>();
 
 	public static void fillWordList(String rawWord, String wordSet, Scanner fileScn)
 	{
@@ -23,18 +23,18 @@ public class ReadWordlist {
 			wordList.add(word);
 
 		}
-		
+
 	}
-	
+
 	public static void findCorrectIndex(String rawWord, String wordSet, Scanner fileScn) throws IOException
 	{
 		BufferedReader br = new BufferedReader(new FileReader(new File("Wordlist.txt")));
 		String line;
-		
-		
+
+
 		while (((line = br.readLine()) != null))
 		{
-			
+
 			while(line.substring(0, 1).equals(wordSet))
 			{
 				
@@ -44,9 +44,9 @@ public class ReadWordlist {
 				Word word = new Word(wordInfo[0], Integer.parseInt(wordInfo[1]), wordInfo[2]);
 
 				wordList.add(word);
-				
+
 				line = br.readLine();
-				
+
 				if(line == null)
 				{
 					return;
@@ -54,9 +54,9 @@ public class ReadWordlist {
 			}
 		}
 		br.close();
-		
+
 	}
-	
+
 
 	public static ArrayList<Word> readFile() throws IOException
 	{
@@ -71,7 +71,7 @@ public class ReadWordlist {
 		Scanner wsScan = new Scanner(System.in);
 
 		String wordSet =  wsScan.nextLine().toUpperCase();
-		
+
 		switch(wordSet)
 		{
 			case "A":
@@ -92,7 +92,7 @@ public class ReadWordlist {
 				break;
 			}
 		}
-		
+
 		return wordList;
 
 
