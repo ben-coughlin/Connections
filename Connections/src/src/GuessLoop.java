@@ -39,6 +39,7 @@ public class GuessLoop {
 				System.out.print(guessIcon);
 			}
 		}
+		
 	}
 
 
@@ -143,5 +144,6 @@ public class GuessLoop {
 		
 		
 	}
+	
 
 }
