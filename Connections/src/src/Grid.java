@@ -18,12 +18,16 @@ public class Grid {
 		try {
 			fillWS(wordSpaces);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		String formattedGridBar = formatGrid(wordSpaces);
 		
+		printGrid(formattedGridBar);
+	}
+	
+	public static void printGrid(String formattedGridBar) 
+	{
 		System.out.println("+" + formattedGridBar + "+" + formattedGridBar + "+" + formattedGridBar + "+" + formattedGridBar + "+\r\n"
 				+ "| " + wordSpaces[0][0] + " | " + wordSpaces[0][1] + " |  " + wordSpaces[0][2] + " |  " + wordSpaces[0][3] + " |\r\n"
 				+ "+" + formattedGridBar + "+" + formattedGridBar + "+" + formattedGridBar + "+" + formattedGridBar + "+\r\n"
@@ -33,8 +37,6 @@ public class Grid {
 				+ "+" + formattedGridBar + "+" + formattedGridBar + "+" + formattedGridBar + "+" + formattedGridBar + "+\r\n"
 				+ "| " + wordSpaces[3][0] + " | " + wordSpaces[3][1] + " | " + wordSpaces[3][2] + "  | " + wordSpaces[3][3] + "  |\r\n"
 				+ "+" + formattedGridBar + "+" + formattedGridBar + "+" + formattedGridBar + "+" + formattedGridBar + "+");
-		
-		
 	}
 	
 	public static String formatGrid(String[][] wordSpaces)
