@@ -23,6 +23,12 @@ public class GuessLoop {
 			guessedSpace++;
 		}
 		printNumGuessesLeft(checkForCorrectCategory(), numGuessesRemaining);
+		
+		
+		
+		Grid.printGrid(Grid.formatGrid(Grid.wordSpaces));
+
+		
 	}
 	
 	
@@ -33,11 +39,21 @@ public class GuessLoop {
 		if(!wasGuessCorrect)
 		{
 			numGuessesRemaining--;
+			System.out.println("Those categories were incorrect.");
 			System.out.print("Guesses Remaining: ");
 			for(int i = 0; i < numGuessesRemaining; i++)
 			{
 				System.out.print(guessIcon);
 			}
+			System.out.println("");
+			ShuffleBoard.clearGuessFormatting();
+			System.out.println("board has been formatted");
+			
+		}
+		else
+		{
+			ShuffleBoard.sortBoardWithCategories();
+			System.out.println("board has been sorted");
 		}
 		
 	}
@@ -77,10 +93,10 @@ public class GuessLoop {
 				if(guess.equals(ws[r][c]))
 				{
 					
-					Grid.wordSpaces[r][c] = "‹"+ ws[r][c] + "›";
+					Grid.wordSpaces[r][c] = "<"+ ws[r][c] + ">";
 					
 					int difficulty = getDifficultyOfWord(guess);
-					System.out.println(diffIndex + " " + difficulty);
+					//System.out.println(diffIndex + " " + difficulty); - debugging
 					storeDifficulties(difficulty, difficulties, diffIndex);
 					diffIndex++;
 				}
