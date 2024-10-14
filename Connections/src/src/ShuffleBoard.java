@@ -4,7 +4,6 @@ import java.util.Random;
 
 public class ShuffleBoard {
 
-	static String[] guessedCategoryWords = new String[4];
 
 	public static void shuffle(String[][] a) {
 		Random random = new Random();
@@ -20,10 +19,12 @@ public class ShuffleBoard {
 			}
 		}
 	}
-	public static void clearGuessFormatting()
+	public static String[] clearGuessFormatting()
 	{
-		
+		 String[] guessedCategoryWords = new String[4];
+		 
 		int guessedCategoryIndex = 0;
+		
 		for(int r = 0; r < Grid.wordSpaces.length; r++)
 		{
 			for(int c = 0; c < Grid.wordSpaces[0].length; c++)
@@ -36,6 +37,8 @@ public class ShuffleBoard {
 					word = word.substring(1, word.length() - 1);
 					Grid.wordSpaces[r][c] = word;
 					guessedCategoryWords[guessedCategoryIndex] = word;
+					System.out.println(word);
+					
 					guessedCategoryIndex++;
 				}
 				
@@ -44,34 +47,39 @@ public class ShuffleBoard {
 			
 		}
 		
-		
-		
-		
+		return guessedCategoryWords;
 	}
 	public static void sortBoardWithCategories()
 	{
 		
 		//this should only run when a category is guessed CORRECTLY
 		
-		String[] category = guessedCategoryWords;
+		String[] category = clearGuessFormatting();
+		String[][] wordSpaceContent = new String[4][4];
 		
-		for(int i = 0; i < category.length; i++)
-		{
-			System.out.println(category[i]);
-		}
 		int categoryIndex = 0;
+		
 		
 		for(int r = 0; r < Grid.wordSpaces.length; r++)
 		{
 			for(int c = 0; c < Grid.wordSpaces[0].length; c++)
 			{
+//				wordSpaceContent[r][c] = Grid.wordSpaces[r][c];
+//				
+//				System.out.println("wsc" + wordSpaceContent[r][c]);
+//				
+//				if((Grid.wordSpaces[r][c].equals(category[categoryIndex])))
+//				{
+//					
+//					Grid.wordSpaces[1][categoryIndex] = wordSpaceContent[r][c];
+//					
+//					categoryIndex++;
+//					System.out.println("catindx"+categoryIndex);
+//					
+//				}
 				
-				if((Grid.wordSpaces[r][c].equals(category[categoryIndex])))
-				{
-					
-					Grid.wordSpaces[r][c] = "balls";
-					categoryIndex++;
-				}
+				System.out.println(category[categoryIndex]);
+				categoryIndex++;
 
 				
 			}

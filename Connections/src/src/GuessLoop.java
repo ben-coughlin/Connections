@@ -14,20 +14,20 @@ public class GuessLoop {
 		int guessedSpace = 0;
 		int numGuessesRemaining = 4;
 		
-		
-		while(guessedSpace < 4)
-		{
+	
+			while(guessedSpace < 4)
+			{
 
-			highlightGuesses(Grid.wordSpaces);
+				highlightGuesses(Grid.wordSpaces);
+				Grid.printGrid(Grid.formatGrid(Grid.wordSpaces));
+				guessedSpace++;
+			}
+			printNumGuessesLeft(checkForCorrectCategory(), numGuessesRemaining);
+			ShuffleBoard.sortBoardWithCategories();
 			Grid.printGrid(Grid.formatGrid(Grid.wordSpaces));
-			guessedSpace++;
-		}
-		printNumGuessesLeft(checkForCorrectCategory(), numGuessesRemaining);
-		
-		
-		
-		Grid.printGrid(Grid.formatGrid(Grid.wordSpaces));
 
+		
+		
 		
 	}
 	
@@ -46,7 +46,8 @@ public class GuessLoop {
 				System.out.print(guessIcon);
 			}
 			System.out.println("");
-			ShuffleBoard.clearGuessFormatting();
+			//ShuffleBoard.clearGuessFormatting();
+			ShuffleBoard.sortBoardWithCategories();
 			System.out.println("board has been formatted");
 			
 		}
