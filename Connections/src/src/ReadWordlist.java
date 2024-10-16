@@ -56,6 +56,20 @@ public class ReadWordlist {
 		br.close();
 
 	}
+	public static int getIndexOfWord(String str)
+	{
+		for(int i = 0; i < wordList.size(); i++)
+		{
+			if(wordList.get(i).getWord().equals(str))
+			{
+				return i;
+			}
+			
+		}
+		
+		//100 is status code for not found
+		return 100;
+	}
 
 
 	public static ArrayList<Word> readFile() throws IOException
@@ -77,7 +91,7 @@ public class ReadWordlist {
 			case "A":
 			{
 				//wordset a needs no extra - first lines
-				fillWordList(rawWord, wordSet, fileScn);
+				findCorrectIndex(rawWord, wordSet, wsScan);
 				break;
 			}
 			//b and c, though, take more work

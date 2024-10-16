@@ -14,7 +14,9 @@ public class GuessLoop {
 		int guessedSpace = 0;
 		int numGuessesRemaining = 4;
 		
-	
+		while(numGuessesRemaining > 0)
+		{
+			int guessedCategory = 0;
 			while(guessedSpace < 4)
 			{
 
@@ -22,10 +24,16 @@ public class GuessLoop {
 				Grid.printGrid(Grid.formatGrid(Grid.wordSpaces));
 				guessedSpace++;
 			}
+			
+			
 			printNumGuessesLeft(checkForCorrectCategory(), numGuessesRemaining);
-			ShuffleBoard.sortBoardWithCategories();
 			Grid.printGrid(Grid.formatGrid(Grid.wordSpaces));
-
+			numGuessesRemaining--;
+			guessedSpace = 0;
+		}
+	
+			
+			
 		
 		
 		
@@ -38,24 +46,27 @@ public class GuessLoop {
 		String guessIcon = " * ";
 		if(!wasGuessCorrect)
 		{
-			numGuessesRemaining--;
+			
 			System.out.println("Those categories were incorrect.");
 			System.out.print("Guesses Remaining: ");
 			for(int i = 0; i < numGuessesRemaining; i++)
 			{
 				System.out.print(guessIcon);
 			}
-			System.out.println("");
-			//ShuffleBoard.clearGuessFormatting();
-			ShuffleBoard.sortBoardWithCategories();
-			System.out.println("board has been formatted");
+			
 			
 		}
 		else
 		{
-			ShuffleBoard.sortBoardWithCategories();
+			
+			ShuffleBoard.clearGuessFormatting();
+			ShuffleBoard.sortCorrectCategories();
 			System.out.println("board has been sorted");
 		}
+		
+		System.out.println("");
+		ShuffleBoard.clearGuessFormatting();
+		System.out.println("board has been formatted");
 		
 	}
 
@@ -130,6 +141,7 @@ public class GuessLoop {
 		        }
 		        else
 		        {
+		        	
 		        	isCategoryEqual = true;
 		        	
 		        	
