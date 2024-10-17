@@ -7,7 +7,7 @@ public class GuessLoop {
 	
 	static int[] difficulties = new int[4];
 	static int diffIndex = 0;
-	
+	static int numCorrect = 0;
 	
 	public static void guessLoop()
 	{
@@ -27,11 +27,22 @@ public class GuessLoop {
 			
 			
 			printNumGuessesLeft(checkForCorrectCategory(), numGuessesRemaining);
-			Grid.printGrid(Grid.formatGrid(Grid.wordSpaces));
+//			Grid.printGrid(Grid.formatGrid(Grid.wordSpaces));
 			numGuessesRemaining--;
+			endOfTurn();
 			guessedSpace = 0;
+			
 		}
-	
+		
+		Grid.printGrid(Grid.formatGrid(Grid.wordSpaces));
+		if(numCorrect == 4)
+			{
+				System.out.println("you win!");
+			}
+		else
+			{
+				System.out.println("you suck lmfao");
+			}
 			
 			
 		
@@ -58,15 +69,15 @@ public class GuessLoop {
 		}
 		else
 		{
-			
+			System.out.println("Those categories were correct!");
 			ShuffleBoard.clearGuessFormatting();
 			ShuffleBoard.sortCorrectCategories();
-			System.out.println("board has been sorted");
+			numCorrect++;
 		}
 		
-		System.out.println("");
+	
 		ShuffleBoard.clearGuessFormatting();
-		System.out.println("board has been formatted");
+		
 		
 	}
 
@@ -167,10 +178,21 @@ public class GuessLoop {
 		
 		return difficulty;
 	}
+	
 	public static void storeDifficulties(int difficulty, int[] difficulties, int diffIndex)
 	{
 		difficulties[diffIndex] = difficulty;
 		
+	}
+	public static void endOfTurn()
+	{
+		//cleanup method
+		
+		for(int i = 0; i < difficulties.length; i++)
+			{
+				difficulties[i] = 0;
+			}
+		diffIndex = 0;
 		
 	}
 	

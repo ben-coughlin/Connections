@@ -42,27 +42,35 @@ public class Grid {
 	public static String formatGrid(String[][] wordSpaces)
 	{
 		String formattedGridBar = "";
-		int averageWordLength = 0;
-		int counter = 0;
+		int longestWordLength = Integer.MIN_VALUE;
+		
 		
 		for(int r = 0; r < wordSpaces.length; r++)
 		{
 			for(int c = 0; c < wordSpaces[1].length; c++)
 			{
-				averageWordLength += wordSpaces[r][c].length();
-				counter++;
+				if(wordSpaces[r][c].length() > longestWordLength)
+					{
+						longestWordLength = wordSpaces[r][c].length();
+					}
+				
 			}
 		}
 		
-		averageWordLength /= counter;
-		averageWordLength += 2;
+		// adds a little bit of spacing so the longest word isn't cramped
 		
-		for(int i = 0; i < averageWordLength; i++)
+		
+		
+		for(int i = 0; i < longestWordLength; i++)
 		{
 			formattedGridBar += "-";
 		}
+		
+		//centerWords(formattedGridBar);
+		
 		return formattedGridBar;
 	}
+	
 	
 	
 	public static void fillWS(String[][] ws) throws IOException
@@ -104,14 +112,14 @@ public class Grid {
 	public static void printMatrix(String[][] ws)
 	{
 		for(int r = 0; r < ws.length; r++)
-		{
-			for(int c = 0; c < ws[0].length; c++)
 			{
-				System.out.println(ws[r][c]);
+				for(int c = 0; c < ws[0].length; c++)
+				{
+					System.out.println(ws[r][c]);
+					
+				}
 				
 			}
-			
-		}
 	}
 	public static void printArrayList(ArrayList<Word> al)
 	{
