@@ -42,6 +42,8 @@ public class GuessLoop {
 		else
 			{
 				System.out.println("oh no you lost!");
+				
+				///fjaslkd;fjasl;dkfj;laksdjf;laksdj
 			}
 			
 			
