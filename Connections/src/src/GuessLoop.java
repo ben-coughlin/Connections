@@ -41,7 +41,7 @@ public class GuessLoop {
 			}
 		else
 			{
-				System.out.println("you suck lmfao");
+				System.out.println("oh no you lost!");
 			}
 			
 			
